@@ -19,6 +19,12 @@ import java.util.ArrayList;
 * 會各自套用 UserDetailsManagerConfigurer 的子類實例，真正在進行時驗證，
 * 就會從 UserDetailsManagerConfigurer 取得 UserDetailsService 實例，
 * 以便從驗證來源取得使用者名稱、密碼、角色清單等資訊。
+*
+* Spring Security在進行安全驗證時收到輸入請求中的使用者名稱(username)
+* ，然後呼叫UserDetailsService.loadUserByUsername(String username)
+* 並傳入username去「記錄使用者資訊的地方」尋找對應的使用者
+* ，然後將找到的使用者資訊以UserDetails的形式
+* 回傳給AuthenticationProvider（的實作）進行接下來的驗證。
 * */
 @Service
 public class MyUserDetailService implements UserDetailsService {

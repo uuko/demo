@@ -27,10 +27,10 @@ public class JwtProvider {
         UserPrinciple userPrincipal = (UserPrinciple) authentication.getPrincipal();
 
         return Jwts.builder()
-                .setSubject((userPrincipal.getUsername()))
-                .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + jwtExpiration))
-                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .setSubject((userPrincipal.getUsername())) //主題
+                .setIssuedAt(new Date()) //簽發時間
+                .setExpiration(new Date((new Date()).getTime() + jwtExpiration)) //過期時間
+                .signWith(SignatureAlgorithm.HS512, jwtSecret) //簽名算法 + key
                 .compact();
     }
 

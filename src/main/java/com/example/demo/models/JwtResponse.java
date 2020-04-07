@@ -2,7 +2,7 @@ package com.example.demo.models;
 
 public class JwtResponse {
     private String token;
-    private String type = "Bearer";
+//    private String type = "Bearer";
 
     public JwtResponse(String accessToken) {
         this.token = accessToken;
@@ -16,11 +16,11 @@ public class JwtResponse {
         this.token = accessToken;
     }
 
-    public String getTokenType() {
-        return type;
-    }
-
-    public void setTokenType(String tokenType) {
-        this.type = tokenType;
-    }
+//    public String getTokenType() {
+//        return type;
+//    }
+//
+//    public void setTokenType(String tokenType) {
+//        this.type = tokenType;
+//    }
 }
