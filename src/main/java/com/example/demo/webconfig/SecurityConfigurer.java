@@ -45,11 +45,22 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());;
     }
 
+    private static final String[] AUTH_WHITELIST = {
+            // -- swagger ui
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**",
+            "/css/**", "/js/**","/images/**", "/webjars/**",
+            "**/favicon.ico", "/index"
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
        http.csrf().disable()
                .authorizeRequests()
                .antMatchers("/api/auth/**").permitAll()
+               .antMatchers(AUTH_WHITELIST).permitAll()
                .anyRequest().authenticated()
                .and()
                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

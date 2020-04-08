@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
